@@ -41,3 +41,19 @@ document.getElementById('login-form').addEventListener('submit', (e) => {
         })
         .catch(error => alert(error.message));
 });
+const favoriteButtons = document.querySelectorAll('.favorite-btn');
+
+favoriteButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const projectId = button.parentElement.getAttribute('data-id');
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        if (!favorites.includes(projectId)) {
+            favorites.push(projectId);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            alert("Dodano do ulubionych!");
+        } else {
+            alert("Projekt już znajduje się w ulubionych.");
+        }
+    });
+});
