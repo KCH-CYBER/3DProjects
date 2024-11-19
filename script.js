@@ -97,3 +97,24 @@ document.getElementById('search-input').addEventListener('input', (e) => {
         project.style.display = isVisible ? 'block' : 'none';
     });
 });
+// Inicjalizacja Three.js
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById('3d-viewer').appendChild(renderer.domElement);
+
+// Dodanie światła
+const light = new THREE.PointLight(0xffffff, 1, 500);
+light.position.set(10, 10, 10);
+scene.add(light);
+
+// Ładowanie modelu
+const loader = new THREE.GLTFLoader();
+loader.load('path-to-model.gltf', (gltf) => {
+    scene.add(gltf.scene);
+    renderer.render(scene, camera);
+});
+
+camera.position.z = 5;
