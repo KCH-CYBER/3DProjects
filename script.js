@@ -88,3 +88,12 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 app.listen(3000, () => console.log("Serwer działa na porcie 3000"));
+document.getElementById('search-input').addEventListener('input', (e) => {
+    const searchValue = e.target.value.toLowerCase();
+    const projects = document.querySelectorAll('.project');
+
+    projects.forEach(project => {
+        const isVisible = project.textContent.toLowerCase().includes(searchValue);
+        project.style.display = isVisible ? 'block' : 'none';
+    });
+});
