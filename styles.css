@@ -4,7 +4,7 @@ body {
     color: #fff;
     margin: 0;
     padding: 0;
-    background-image: url('images/background.png'); /* Ścieżka do Twojej grafiki */
+    background-image: url('C:\Users\User\Desktop\narzędzia\3DProjects\images'); /* Ścieżka do Twojej grafiki */
     background-size: cover; /* Dopasowanie grafiki do rozmiaru ekranu */
     background-position: center; /* Wyśrodkowanie tła */
     background-repeat: no-repeat; /* Zapobieganie powtarzaniu tła */
