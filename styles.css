@@ -78,3 +78,12 @@ footer {
         flex-direction: column;
     }
 }
+body {
+    background-image: url('images/background.png'); /* Ścieżka do Twojej grafiki */
+    background-size: cover; /* Dopasowanie grafiki do rozmiaru ekranu */
+    background-position: center; /* Wyśrodkowanie tła */
+    background-repeat: no-repeat; /* Zapobieganie powtarzaniu tła */
+    background-attachment: fixed; /* Utrzymanie tła na miejscu przy przewijaniu */
+    color: white; /* Opcjonalne: Tekst na stronie w kolorze białym, aby był czytelny */
+    font-family: Arial, sans-serif; /* Przykład zmiany czcionki */
+}
