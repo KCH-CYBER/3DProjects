@@ -57,3 +57,34 @@ favoriteButtons.forEach(button => {
         }
     });
 });
+const express = require('express');
+const stripe = require('stripe')('YOUR_STRIPE_SECRET_KEY');
+const app = express();
+
+app.use(express.static('public'));
+app.use(express.json());
+
+app.post('/create-checkout-session', async (req, res) => {
+    const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items: [
+            {
+                price_data: {
+                    currency: 'pln',
+                    product_data: {
+                        name: 'Subskrypcja 3D Projects',
+                    },
+                    unit_amount: 2000, // 20 zł
+                },
+                quantity: 1,
+            },
+        ],
+        mode: 'subscription',
+        success_url: 'https://your-site.com/success',
+        cancel_url: 'https://your-site.com/cancel',
+    });
+
+    res.json({ id: session.id });
+});
+
+app.listen(3000, () => console.log("Serwer działa na porcie 3000"));
